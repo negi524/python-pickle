@@ -1,4 +1,5 @@
 import pandas as pd
+import pickle
 
 
 class User:
@@ -20,14 +21,24 @@ class User:
 
 
 def main():
-    # 保存
+    # DataFrameを使った書き込み
     # user = User("yamada", 20)
     # print(f"name={user.get_name()}, age={user.get_age()}")
     # pd.to_pickle(user, "user.pkl")
 
-    # 読み出し
-    user = pd.read_pickle("user.pkl")
-    print(f"name={user.get_name()}, age={user.get_age()}")
+    # DataFrameを使った読み出し
+    # user = pd.read_pickle("user.pkl")
+    # print(f"name={user.get_name()}, age={user.get_age()}")
+
+    # pickleを使った書き込み
+    # user = User("yamada", 20)
+    # with open("user.pkl", "wb") as file:
+    #     pickle.dump(user, file)
+
+    # pickleを使った読み出し
+    with open("user.pkl", "rb") as file:
+        user = pickle.load(file)
+        print(f"name={user.get_name()}, age={user.get_age()}")
 
 
 if __name__ == "__main__":
