@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 class User:
     name: str
     age: int
@@ -17,8 +20,14 @@ class User:
 
 
 def main():
-    yamada = User("yamada", 20)
-    print(f"name={yamada.get_name()}, age={yamada.get_age()}")
+    # 保存
+    # user = User("yamada", 20)
+    # print(f"name={user.get_name()}, age={user.get_age()}")
+    # pd.to_pickle(user, "user.pkl")
+
+    # 読み出し
+    user = pd.read_pickle("user.pkl")
+    print(f"name={user.get_name()}, age={user.get_age()}")
 
 
 if __name__ == "__main__":
